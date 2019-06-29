@@ -1,0 +1,54 @@
+.toollogo{
+    height: 100%;
+    max-width: 100px;
+    float: left;
+}
+.toolimg{
+    width: 100%;
+    max-width: 100px;
+    border-radius: 10px;
+}
+
+.abtdiv{
+    margin-top: 20px;
+    
+}
+
+.logbtn{
+    width: 100%;
+    max-width: 160px;
+}
+a{
+    font-size: 12px;
+    color: black;
+}
+.sociallogs{
+    margin-top: 30px;
+}
+.ezfoodlog{
+    margin-top: 5px;
+}
+.createacnt{
+    width: 100%;
+    max-width: 335px;
+}
+
+ion-toolbar{
+    --background:#ff7a29;
+
+    ion-title{
+        
+        max-width: 200px;
+        padding-top: 15px;
+        float: left;
+        
+    }
+    
+}
+
+
+ion-input{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+

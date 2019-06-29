@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="light" href="/menu">
+                <ion-icon class="icn" slot="start" name="arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Your Order</ion-label>
+        </ion-list-header>
+        <ion-item>Item 1
+            <div slot="end">
+                Rs.500.00
+            </div>
+        </ion-item>
+        <ion-item>Item 2
+            <div slot="end">
+                Rs.500.00
+            </div>
+        </ion-item>
+        <ion-item>Item 3
+            <div slot="end">
+                Rs.500.00
+            </div>
+        </ion-item>
+        <ion-item>Item 4</ion-item>
+        <ion-item>Item 5</ion-item>
+    </ion-list>
+
+
+    <ion-list class="totallist">
+        <ion-item>
+            Sub Total
+        </ion-item>
+        <ion-item>
+            Total
+        </ion-item>
+    </ion-list>
+
+
+    <div class="footer">
+        <ion-button color="success" class="btn btnlist btn-block">
+            PLACE ORDER
+        </ion-button>
+    </div>
+</ion-content>

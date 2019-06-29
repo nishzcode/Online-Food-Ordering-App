@@ -13,12 +13,49 @@ export class AppComponent {
     {
       title: 'Home',
       url: '/home',
-      icon: 'home'
+
     },
-    {
+    /*{
       title: 'List',
       url: '/list',
-      icon: 'list'
+      
+    },*/
+    
+    {
+      title: 'Restaurants',
+      url: '/restaurants',
+
+    },
+    {
+      title: 'Menu',
+      url: '/menu',
+
+    },
+    {
+      title: 'Login/Sign Up',
+      url: '/login',
+
+    },
+
+    {
+      title: 'Feedback',
+      url: '/feedback',
+
+    },
+    {
+      title: 'T & C',
+      url: '/terms',
+
+    },
+    {
+      title: 'Privacy Policy',
+      url: '/privacypolicy',
+
+    },
+    {
+      title: 'About Us',
+      url: '/aboutus',
+
     }
   ];
 

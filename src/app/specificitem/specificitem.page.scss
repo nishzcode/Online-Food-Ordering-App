@@ -1,0 +1,42 @@
+.toollogo{
+    height: 100%;
+    max-width: 100px;
+    float: left;
+}
+
+
+.toolimg{
+    width: 100%;
+    max-width: 100px;
+    border-radius: 10px;
+}
+
+.qtybtn{
+    width: 150px;
+}
+
+ion-button{
+    font-weight: bold;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.btnlist{
+    height: 70px;
+}
+
+ion-toolbar{
+    --background:#ff7a29;
+
+    ion-title{
+        
+        max-width: 200px;
+        padding-top: 15px;
+        float: left;
+        
+    }
+    
+}
