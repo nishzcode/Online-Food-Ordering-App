@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url('fonts/PoppinsMedium.eot');
+    src: url('fonts/PoppinsMedium.eot') format('embedded-opentype'),
+         url('fonts/PoppinsMedium.woff2') format('woff2'),
+         url('fonts/PoppinsMedium.woff') format('woff'),
+         url('fonts/PoppinsMedium.ttf') format('truetype'),
+         url('fonts/PoppinsMedium.svg#PoppinsMedium') format('svg');
+}

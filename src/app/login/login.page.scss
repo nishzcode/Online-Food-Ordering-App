@@ -35,16 +35,19 @@ a{
 }
 
 ion-toolbar{
-    --background:#ff7a29;
-
+    --background:url(../../assets/images/title_background.png) no-repeat center center / cover;
+    --color : #FFF;
     ion-title{
         
         max-width: 200px;
-        padding-top: 15px;
         float: left;
         
     }
     
+}
+ion-content{
+    --background:url(../../assets/images/background.png) no-repeat center center / cover;
+    --color : #FFF;
 }
 
 .formrow{
@@ -58,4 +61,13 @@ a{
 .acolor{
     color: #ff7a29;
     text-align: center;
+}
+ion-item{
+    --background:rgba(0,0,0,0.1);
+}
+ion-label,.item.sc-ion-label-md-h, .item .sc-ion-label-md-h,ion-input{
+    color:#FFF;
+}
+h4{
+    --ion-font-family:'Astereiska';
 }

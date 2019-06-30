@@ -76,6 +76,53 @@
   --ion-color-light-tint: #f5f6f9;
 
 
-  
+  --ion-font-family: 'KionaRegular';
 
+}
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('../assets/fonts/PoppinsRegular.eot');
+  src: url('../assets/fonts/PoppinsRegular.eot') format('embedded-opentype'),
+       url('../assets/fonts/PoppinsRegular.woff2') format('woff2'),
+       url('../assets/fonts/PoppinsRegular.woff') format('woff'),
+       url('../assets/fonts/PoppinsRegular.ttf') format('truetype'),
+       url('../assets/fonts/PoppinsRegular.svg#PoppinsRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: url('../assets/fonts/PoppinsSemiBold.eot');
+  src: url('../assets/fonts/PoppinsSemiBold.eot') format('embedded-opentype'),
+       url('../assets/fonts/PoppinsSemiBold.woff2') format('woff2'),
+       url('../assets/fonts/PoppinsSemiBold.woff') format('woff'),
+       url('../assets/fonts/PoppinsSemiBold.ttf') format('truetype'),
+       url('../assets/fonts/PoppinsSemiBold.svg#PoppinsSemiBold') format('svg');
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('../assets/fonts/PoppinsMedium.eot');
+  src: url('../assets/fonts/PoppinsMedium.eot') format('embedded-opentype'),
+       url('../assets/fonts/PoppinsMedium.woff2') format('woff2'),
+       url('../assets/fonts/PoppinsMedium.woff') format('woff'),
+       url('../assets/fonts/PoppinsMedium.ttf') format('truetype'),
+       url('../assets/fonts/PoppinsMedium.svg#PoppinsMedium') format('svg');
+}
+@font-face {
+  font-family: 'KionaRegular';
+  src: url('../assets/fonts/KionaRegular.eot');
+  src: url('../assets/fonts/KionaRegular.eot') format('embedded-opentype'),
+       url('../assets/fonts/KionaRegular.woff2') format('woff2'),
+       url('../assets/fonts/KionaRegular.woff') format('woff'),
+       url('../assets/fonts/KionaRegular.ttf') format('truetype'),
+       url('../assets/fonts/KionaRegular.svg#KionaRegular') format('svg');
+}
+@font-face {
+  font-family: 'Astereiska';
+  src: url('../assets/fonts/Astereiska.eot');
+  src: url('../assets/fonts/Astereiska.eot') format('embedded-opentype'),
+       url('../assets/fonts/Astereiska.woff2') format('woff2'),
+       url('../assets/fonts/Astereiska.woff') format('woff'),
+       url('../assets/fonts/Astereiska.ttf') format('truetype'),
+       url('../assets/fonts/Astereiska.svg#Astereiska') format('svg');
 }

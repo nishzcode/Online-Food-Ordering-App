@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Astereiska';
+    src: url('fonts/Astereiska.eot');
+    src: url('fonts/Astereiska.eot') format('embedded-opentype'),
+         url('fonts/Astereiska.woff2') format('woff2'),
+         url('fonts/Astereiska.woff') format('woff'),
+         url('fonts/Astereiska.ttf') format('truetype'),
+         url('fonts/Astereiska.svg#Astereiska') format('svg');
+}
