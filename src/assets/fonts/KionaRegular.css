@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'KionaRegular';
+    src: url('fonts/KionaRegular.eot');
+    src: url('fonts/KionaRegular.eot') format('embedded-opentype'),
+         url('fonts/KionaRegular.woff2') format('woff2'),
+         url('fonts/KionaRegular.woff') format('woff'),
+         url('fonts/KionaRegular.ttf') format('truetype'),
+         url('fonts/KionaRegular.svg#KionaRegular') format('svg');
+}

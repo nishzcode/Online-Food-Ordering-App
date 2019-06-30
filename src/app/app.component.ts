@@ -15,12 +15,6 @@ export class AppComponent {
       url: '/home',
 
     },
-    /*{
-      title: 'List',
-      url: '/list',
-      
-    },*/
-    
     {
       title: 'Restaurants',
       url: '/restaurants',

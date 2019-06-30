@@ -1,58 +1,51 @@
 <ion-header>
-    <ion-toolbar>
-      <div class="toollogo">
-        <a href="/home"><img  class="toolimg" src="../../assets/images/Food-Wallpaper.jpg" alt="smalllogo"></a>
-      </div>
-      <ion-title>
-        <div class="titlename"> RESTAURANTS</div>
-       
-      </ion-title>
-      <ion-buttons slot="end">
-        <ion-menu-button color="light"></ion-menu-button>
-      </ion-buttons>
-      
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="titlename"> RESTAURANTS</div>
 
-  <ion-content>
-    <div>
-        <ion-searchbar color="tertiary" placeholder="Search restaurant"></ion-searchbar>
-    </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
 
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col class="col">
-          <div>
-              <ion-card>
-                  <img src="../../assets/images/outlet.jpg" alt="outlet">
-              </ion-card>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="col">
-          <div>
-            <h3>Shop NAme</h3>
-            <p>p Lorem ipsum dolor sit amet.</p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col class="col">
-            <div>
-                <ion-card>
-                    <img src="../../assets/images/outlet.jpg" alt="outlet">
-                </ion-card>
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="col">
-            <div>
-              <h3>Shop NAme</h3>
-              <p>p Lorem ipsum dolor sit amet.</p>
-            </div>
-          </ion-col>
-        </ion-row>
-    </ion-grid>
-  </ion-content>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-searchbar placeholder="Search restaurant"></ion-searchbar>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Burger King</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="../../assets/images/outlets/burgerking.png" alt="outlet">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </ion-card-content>
+    <ion-button class="rest_btn">
+      Go and Check
+      <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+    </ion-button>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pizza Hut</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="../../assets/images/outlets/pizzahut.png" alt="outlet">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </ion-card-content>
+    <ion-button class="rest_btn">
+        Go and Check
+        <ion-icon slot="end" name="arrow-dropright"></ion-icon>
+      </ion-button>
+  </ion-card>
+</ion-content>
