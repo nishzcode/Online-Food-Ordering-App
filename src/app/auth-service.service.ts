@@ -34,7 +34,7 @@ export class AuthServiceService {
     if (credentials.firstname === null || credentials.lastname === null||credentials.mobileno === null||credentials.password === null||credentials.usertype === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      return this.http.post("http://localhost/carbon/api/signup.php",{"username":credentials.username,"firstname":credentials.firstname,"lastname":credentials.lastname,"password":credentials.password}).map(res=>res.json());
+      return this.http.post("http://localhost/FYP/app.py",{"username":credentials.username,"firstname":credentials.firstname,"lastname":credentials.lastname,"password":credentials.password}).map(res=>res.json());
     }
   }
   ?*/
