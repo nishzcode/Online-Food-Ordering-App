@@ -17,7 +17,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">First Name*</ion-label>
-                        <ion-input name="firstname" placeholder="Enter your First Name"></ion-input>
+                        <ion-input name="firstname" placeholder="Enter your First Name" [(ngModel)]='registerCredentials.firstname'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -27,7 +27,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Last Name*</ion-label>
-                        <ion-input name="lastname" placeholder="Enter your Last Name"></ion-input>
+                        <ion-input name="lastname" placeholder="Enter your Last Name" [(ngModel)]='registerCredentials.lastname'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -37,7 +37,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Email*</ion-label>
-                        <ion-input name="email" placeholder="Enter your Email"></ion-input>
+                        <ion-input name="email" placeholder="Enter your Email" [(ngModel)]='registerCredentials.email'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -47,7 +47,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Mobile Number*</ion-label>
-                        <ion-input name="mobileno" placeholder="Enter your Mobile No."></ion-input>
+                        <ion-input name="mobileno" placeholder="Enter your Mobile No." [(ngModel)]='registerCredentials.mobileno'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -57,7 +57,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Username*</ion-label>
-                        <ion-input name="password" placeholder="Enter your Username"></ion-input>
+                        <ion-input name="password" placeholder="Enter your Username" [(ngModel)]='registerCredentials.username'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -67,7 +67,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Password*</ion-label>
-                        <ion-input name="password" placeholder="Enter your Password"></ion-input>
+                        <ion-input name="password" placeholder="Enter your Password" [(ngModel)]='registerCredentials.password'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -76,7 +76,7 @@
         <ion-row class="ezfoodlog">
             <ion-col class="col">
                 <div class="d-flex justify-content-center ">
-                    <ion-button color="success">
+                    <ion-button color="success" (click)='register()'>
                         <ion-icon slot="start" name="beer"></ion-icon>
                         Register with EzFood
                     </ion-button>
