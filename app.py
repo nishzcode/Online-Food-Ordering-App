@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request
 from flask_mysqldb import MySQL
 from flask_cors import CORS,cross_origin
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -28,7 +29,7 @@ def custregister():
         cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
         mysql.connection.commit()
         cur.close()
-        return " success"
+        return jsonify("success")
 
 @app.route('/',methods=['GET','POST'])
 def login():
