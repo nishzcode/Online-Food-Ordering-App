@@ -7,14 +7,14 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'foodapp'
+app.config['MYSQL_DB'] = 'ezfood'
 
 mysql = MySQL(app)
 
 @app.route('/',methods=['GET','POST'])
 def custregister():
     if request.method == 'POST':
-        userDetails = request.form
+        userDetails = request.get_json(silent=True)
         fname = userDetails['firstname']
         lname = userDetails['lastname']
         email = userDetails['email']
@@ -24,7 +24,7 @@ def custregister():
         utype = "customer"
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
+        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
         mysql.connection.commit()
         cur.close()
         return " success"
