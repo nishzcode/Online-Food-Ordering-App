@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request
 from flask_mysqldb import MySQL
-
+from flask_cors import CORS,cross_origin
 
 app = Flask(__name__)
 
@@ -11,7 +11,8 @@ app.config['MYSQL_DB'] = 'ezfood'
 
 mysql = MySQL(app)
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/cusregister',methods=['POST'])
+@cross_origin(supports_credentials=True)
 def custregister():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
