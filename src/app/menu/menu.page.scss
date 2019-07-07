@@ -74,3 +74,20 @@ ion-content {
 .menudes {
   margin-top: 15px;
 }
+
+.itemqty {
+  float: right;
+  --background: rgba(255, 123, 0, 0.7);
+  font-size: 15px;
+  font-weight: bold;
+  max-height: 30px;
+}
+
+.itemqty:hover {
+  --background: rgba(255, 255, 255, 0.85);
+  --color: #000;
+}
+
+.qtybtn {
+  width: 150px;
+}
