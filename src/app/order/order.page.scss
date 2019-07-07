@@ -1,23 +1,33 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.totallist{
-    margin-top: 40px;
-    font-weight: bold;
+.totallist {
+  margin-top: 5px;
+  font-weight: bold;
 }
 
-.btnlist{
-    height: 70px;
+.btnlist {
+  height: 70px;
 }
 
-ion-toolbar{
-    --background:#ff7a29;
+ion-toolbar {
+  --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+  --color: #fff;
 }
 
-.icn{
-    width: 35px;
-    height: 35px;
+.icn {
+  width: 35px;
+  height: 35px;
+}
+ion-content {
+  --background: url(../../assets/images/background.png) no-repeat center center / cover;
+  --color: #fff;
+}
+
+ion-label {
+  font-size: 20px;
+  font-weight: bold;
 }

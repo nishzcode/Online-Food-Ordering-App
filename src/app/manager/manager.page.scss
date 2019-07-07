@@ -23,20 +23,35 @@ h6{
 }
 
 ion-toolbar{
-    --background:#ff7a29;
-
+    --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+  --color: #fff;
     ion-title{
         
         max-width: 200px;
-        padding-top: 15px;
         float: left;
         
     }
     
 }
-
+ion-content {
+    --background: url(../../assets/images/background.png) no-repeat center center / cover;
+    --color: #fff;
+  }
 
 ion-label{
     font-weight: bold;
     
+}
+
+ion-button{
+    width:150px;
+    height: 50px;
+}
+.mgr_btn{
+    float: right;
+    --background: rgba(0, 0, 0, 0.7);
+}
+.mgr_btn:hover{
+    --background: rgba(255, 255, 255, 0.85);
+    --color:#000;
 }

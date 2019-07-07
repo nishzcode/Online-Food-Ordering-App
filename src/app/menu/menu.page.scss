@@ -1,66 +1,76 @@
-.shopdiv{
-    width: 100%;
-    height: 100%;
-    max-height: 200px;
+.shopdiv {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
 }
 
-.shopdetails{
-    padding: 10px;
+.shopdetails {
+  padding: 10px;
 }
 
-h4,p{
-    margin: 0;
+h4,
+p {
+  margin: 0;
 }
 
-.segdata{
-    height: 30px;
+.segdata {
+  height: 30px;
 }
 
-.searchdiv{
-    margin-left: 50%;
-    width: 50%;
-    padding: 3px;;
+.listimg {
+  width: 100%;
+  height: 100%;
+  max-width: 60px;
 }
 
-.listimg{
-    width: 100%;
-    height: 100%;
-    max-width: 60px;
+.listmenu {
+  margin-top: 30px;
 }
 
-.listmenu{
-    margin-top: 30px;
+.menulabel {
+  margin-left: 10px;
 }
 
-.menulabel{
-    margin-left: 10px;
+h6 {
+  margin: 0;
 }
 
-h6{
-    margin: 0;
+ion-col {
+  padding: 3px;
+}
+h5 {
+  margin: 0;
 }
 
-ion-col{
-    padding: 3px;
-}
-h5{
-    margin: 0;
+.iconsize {
+  width: 40px;
+  height: 30px;
 }
 
-.iconsize{
-    width: 40px;
-    height: 30px;
+.cartdiv {
+  height: 100%;
+  width: 100%;
+}
+ion-toolbar {
+  --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+  --color: #fff;
 }
 
-.cartdiv{
-    height: 100%;
-    width: 100%;
+.icn {
+  width: 30px;
+  height: 30px;
 }
-ion-toolbar{
-    --background:#ff7a29;
+ion-searchbar {
+  --background: rgba(0, 0, 0, 0.5);
+  --border-radius: 5px;
+  --color: #ddd;
 }
 
-.icn{
-    width: 35px;
-    height: 35px;
+ion-content {
+  --background: url(../../assets/images/background.png) no-repeat center center / cover;
+  --color: #fff;
+}
+
+.menudes {
+  margin-top: 15px;
 }

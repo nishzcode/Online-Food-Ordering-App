@@ -1,42 +1,52 @@
-.toollogo{
-    height: 100%;
-    max-width: 100px;
-    float: left;
+.toollogo {
+  height: 100%;
+  max-width: 100px;
+  float: left;
 }
 
-
-.toolimg{
-    width: 100%;
-    max-width: 100px;
-    border-radius: 10px;
+.toolimg {
+  width: 100%;
+  max-width: 100px;
+  border-radius: 10px;
 }
 
-.qtybtn{
-    width: 150px;
+.qtybtn {
+  width: 150px;
 }
 
-ion-button{
-    font-weight: bold;
+ion-button {
+  font-weight: bold;
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
-.btnlist{
-    height: 70px;
+.btnlist {
+  height: 70px;
 }
 
-ion-toolbar{
-    --background:#ff7a29;
-
-    ion-title{
-        
-        max-width: 200px;
-        padding-top: 15px;
-        float: left;
-        
-    }
-    
+ion-toolbar {
+    --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+    --color: #fff;
+  ion-title {
+    max-width: 200px;
+    float: left;
+  }
 }
+.itemqty {
+  float: right;
+  --background: rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+}
+
+.itemqty:hover {
+  --background: rgba(255, 255, 255, 0.85);
+  --color: #000;
+}
+
+ion-content {
+    --background: url(../../assets/images/background.png) no-repeat center center / cover;
+    --color: #fff;
+  }
