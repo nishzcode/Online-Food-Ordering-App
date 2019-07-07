@@ -14,7 +14,7 @@ mysql = MySQL(app)
 @app.route('/',methods=['GET','POST'])
 def signup():
     if request.method == 'POST':
-        userDetails = request.form
+        userDetails = request.get_json()
         fname = userDetails['firstname']
         lname = userDetails['lastname']
         email = userDetails['email']
@@ -24,7 +24,7 @@ def signup():
         
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password) VALUES(%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd))
+        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd))
         mysql.connection.commit()
         cur.close()
         return " success"
