@@ -32,6 +32,20 @@ a{
     max-width: 335px;
 }
 
-ion-toolbar{
-    --background:#ff7a29;
+ion-toolbar {
+    --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+    --color: #fff;
+    ion-title {
+      max-width: 200px;
+      float: left;
+    }
+  }
+ion-content {
+    --background: url(../../assets/images/background.png) no-repeat center center / cover;
+    --color: #fff;
+  }
+
+  ion-item{
+    --background:rgba(0, 0, 0, 0.7);
+    --color:#fff;
 }
