@@ -3,28 +3,27 @@ import { AlertController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.page.html',
-  styleUrls: ['./order.page.scss'],
+  selector: 'app-additem',
+  templateUrl: './additem.page.html',
+  styleUrls: ['./additem.page.scss'],
 })
-export class OrderPage implements OnInit {
+export class AdditemPage implements OnInit {
 
   createSuccess = false;
-  placeOrderCredentials = { qty: '', unitprice: '', total: '', orderdate:'', ordertime:'' };
-
+  addFoodCredentials = { itemname: '', description: '', price: '' };
+  
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
   ngOnInit() {
   }
 
-
-  public placeOrder() {
-    this.auth.placeOrder(this.placeOrderCredentials).subscribe(success => {
+  public addFood() {
+    this.auth.addFood(this.addFoodCredentials).subscribe(success => {
       if (success) {
         this.createSuccess = true;
-        this.showPopup('Success', 'Items Added to Cart Successfully.');
+        this.showPopup('Success', 'Food Added Successfully.');
       } else {
-        this.showPopup('Error', 'Problem adding to Cart.');
+        this.showPopup('Error', 'Problem adding Food.');
       }
     },
       error => {
@@ -49,4 +48,5 @@ export class OrderPage implements OnInit {
     });
     await alert.present();
   }
+
 }

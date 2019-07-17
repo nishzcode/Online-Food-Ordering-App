@@ -1,30 +1,29 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.page.html',
-  styleUrls: ['./order.page.scss'],
+  selector: 'app-addcashier',
+  templateUrl: './addcashier.page.html',
+  styleUrls: ['./addcashier.page.scss'],
 })
-export class OrderPage implements OnInit {
+export class AddcashierPage implements OnInit {
 
   createSuccess = false;
-  placeOrderCredentials = { qty: '', unitprice: '', total: '', orderdate:'', ordertime:'' };
+  addCashierCredentials = { firstname: '', lastname: '', mobileno: '', username: '', password: '' };
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
   ngOnInit() {
   }
 
-
-  public placeOrder() {
-    this.auth.placeOrder(this.placeOrderCredentials).subscribe(success => {
+  public addCashier() {
+    this.auth.addCashier(this.addCashierCredentials).subscribe(success => {
       if (success) {
         this.createSuccess = true;
-        this.showPopup('Success', 'Items Added to Cart Successfully.');
+        this.showPopup('Success', 'Cashier Added Successfully.');
       } else {
-        this.showPopup('Error', 'Problem adding to Cart.');
+        this.showPopup('Error', 'Problem adding Cashier.');
       }
     },
       error => {
@@ -49,4 +48,5 @@ export class OrderPage implements OnInit {
     });
     await alert.present();
   }
+
 }

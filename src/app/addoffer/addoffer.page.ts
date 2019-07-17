@@ -3,28 +3,27 @@ import { AlertController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.page.html',
-  styleUrls: ['./order.page.scss'],
+  selector: 'app-addoffer',
+  templateUrl: './addoffer.page.html',
+  styleUrls: ['./addoffer.page.scss'],
 })
-export class OrderPage implements OnInit {
+export class AddofferPage implements OnInit {
 
   createSuccess = false;
-  placeOrderCredentials = { qty: '', unitprice: '', total: '', orderdate:'', ordertime:'' };
+  addOfferCredentials = { title: '', description: ''};
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
   ngOnInit() {
   }
 
-
-  public placeOrder() {
-    this.auth.placeOrder(this.placeOrderCredentials).subscribe(success => {
+  public addOffer() {
+    this.auth.addOffer(this.addOfferCredentials).subscribe(success => {
       if (success) {
         this.createSuccess = true;
-        this.showPopup('Success', 'Items Added to Cart Successfully.');
+        this.showPopup('Success', 'Offer Added Successfully.');
       } else {
-        this.showPopup('Error', 'Problem adding to Cart.');
+        this.showPopup('Error', 'Problem adding Offer.');
       }
     },
       error => {

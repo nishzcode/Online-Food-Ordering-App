@@ -52,7 +52,13 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
   { path: 'requestadmin', loadChildren: './requestadmin/requestadmin.module#RequestadminPageModule' },
-  { path: 'manager', loadChildren: './manager/manager.module#ManagerPageModule' }
+  { path: 'manager', loadChildren: './manager/manager.module#ManagerPageModule' },
+  { path: 'addcashier', loadChildren: './addcashier/addcashier.module#AddcashierPageModule' },
+  { path: 'viewrequests', loadChildren: './viewrequests/viewrequests.module#ViewrequestsPageModule' },
+  { path: 'viewmanagers', loadChildren: './viewmanagers/viewmanagers.module#ViewmanagersPageModule' },
+  { path: 'addoffer', loadChildren: './addoffer/addoffer.module#AddofferPageModule' },
+  { path: 'additem', loadChildren: './additem/additem.module#AdditemPageModule' },
+  { path: 'offers', loadChildren: './offers/offers.module#OffersPageModule' }
 ];
 
 @NgModule({

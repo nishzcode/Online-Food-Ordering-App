@@ -1,6 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
-import { AuthServiceService } from '../../app/auth-service.service';
+import { AlertController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
@@ -42,7 +41,6 @@ export class RegisterPage implements OnInit {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-             // this.nav.navigateRoot('/home');
             }
           }
         }

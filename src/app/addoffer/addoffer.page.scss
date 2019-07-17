@@ -1,0 +1,67 @@
+.icn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .toollogo{
+    height: 100%;
+    max-width: 100px;
+    float: left;
+}
+.toolimg{
+    width: 100%;
+    max-width: 100px;
+    border-radius: 10px;
+}
+
+.abtdiv{
+    margin-top: 20px;
+    
+}
+
+.logbtn{
+    width: 100%;
+    max-width: 160px;
+}
+a{
+    font-size: 12px;
+    color: black;
+}
+.sociallogs{
+    margin-top: 30px;
+}
+.ezfoodlog{
+    margin-top: 5px;
+}
+.createacnt{
+    width: 100%;
+    max-width: 335px;
+}
+
+ion-toolbar{
+    --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+  --color: #fff;
+    ion-title{
+        
+        max-width: 200px;
+        float: left;
+        
+    }
+    
+}
+
+
+ion-input{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+ion-content {
+    --background: url(../../assets/images/background.png) no-repeat center center / cover;
+    --color: #fff;
+  }
+
+  ion-item{
+      --background:rgba(0, 0, 0, 0.7);
+      --color:#fff;
+  }

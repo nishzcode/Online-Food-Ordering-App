@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light" href="/menu">
+          <ion-icon class="icn" slot="start" name="arrow-round-back"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+      <ion-menu-button color="light"></ion-menu-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="col">
+        <div class="logindiv">
+          <ion-item>
+            <ion-label position="stacked">Title*</ion-label>
+            <ion-input name="title" placeholder="Enter Title" [(ngModel)]='addOfferCredentials.title'>
+            </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col">
+        <div class="logindiv">
+          <ion-item>
+            <ion-label position="stacked">Description*</ion-label>
+            <ion-input name="description" placeholder="Enter the Description" [(ngModel)]='addOfferCredentials.description'>
+            </ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
