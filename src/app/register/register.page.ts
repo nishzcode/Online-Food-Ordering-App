@@ -10,7 +10,7 @@ import { UserService } from '../api/user.service';
 export class RegisterPage implements OnInit {
 
   createSuccess = false;
-  registerCredentials = { firstname: '', lastname: '', mobileno: '', username: '' , password: '' };
+  registerCredentials = { firstname: '', lastname: '', email: '', mobileno: '', username: '' , password: '' };
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 

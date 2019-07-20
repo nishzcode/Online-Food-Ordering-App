@@ -134,7 +134,7 @@ def placeOrder():
         otime = userDetails['ordertime']
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO order(qty,unitprice,total,orderdate,ordertime) VALUES(%s,%s,%s,%s,%s)",(itemqty,itemprice,totalprice,odate,otime))
+        cur.execute("INSERT INTO orders(qty,unitprice,total,orderdate,ordertime) VALUES(%s,%s,%s,%s,%s)",(itemqty,itemprice,totalprice,odate,otime))
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
