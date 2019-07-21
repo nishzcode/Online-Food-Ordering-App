@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { AlertController,NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class RegisterPage implements OnInit {
   createSuccess = false;
   registerCredentials = { firstname: '', lastname: '', email: '', mobileno: '', username: '' , password: '' };
 
-  constructor(private alertCtrl: AlertController, private auth: UserService,private nav: NavController) { }
+  constructor(private alertCtrl: AlertController, private auth: UserService, private nav: NavController) { }
 
   ngOnInit() {
   }
@@ -46,7 +46,7 @@ export class RegisterPage implements OnInit {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              this.nav.navigateForward('/login')
+              this.nav.navigateForward('/login');
 
             }
           }
