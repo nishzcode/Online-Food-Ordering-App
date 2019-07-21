@@ -69,7 +69,7 @@ def addCashier():
 
 @app.route('/mgrRegister',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
-def mgrRegister():
+def reqAdmin():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
         fname = userDetails['firstname']
@@ -78,10 +78,13 @@ def mgrRegister():
         mobno = userDetails['mobileno']
         uname = userDetails['username']
         pswd = userDetails['password']
-        utype = "manager"
+        shopname = userDetails['shopname']
+        shopdesc = userDetails['shopdesc']
+       # utype = "manager"
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
+       # cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
+        cur.execute("INSERT INTO requestdetails(firstname,lastname,email,mobileno,username,password,shopname,shopdesc) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,shopname,shopdesc))
         mysql.connection.commit()
         cur.close()
         return jsonify("success")

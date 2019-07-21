@@ -10,16 +10,16 @@ import { UserService } from '../api/user.service';
 export class RequestadminPage implements OnInit {
 
   createSuccess = false;
-  registerMgrCredentials = { firstname: '', lastname: '',email: '', mobileno: '', username: '' , password: '' };
-  restaurantCredentials = { shopname: '', description: ''};
+  registerMgrCredentials = { firstname: '', lastname: '',email: '', mobileno: '', username: '' , password: '',shopname: '', shopdesc: '' };
+ 
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
   ngOnInit() {
   }
 
-  public mgrRegister() {
-    this.auth.mgrRegister(this.registerMgrCredentials).subscribe(success => {
+  public reqAdmin() {
+    this.auth.reqAdmin(this.registerMgrCredentials).subscribe(success => {
       if (success) {
         this.createSuccess = true;
         this.showPopup('Success', 'Account created.');
@@ -32,20 +32,7 @@ export class RequestadminPage implements OnInit {
       });
   }
 
-  public addRestaurant() {
-    this.auth.addRestaurant(this.restaurantCredentials).subscribe(success => {
-      if (success) {
-        this.createSuccess = true;
-        //this.showPopup('Success', 'Account created.');
-      } else {
-        this.showPopup('Error', 'Problem creating account.');
-      }
-    },
-      error => {
-        this.showPopup('Error', error);
-      });
-  }
-
+ 
 
   async showPopup(title, text) {
     const alert = await this.alertCtrl.create({

@@ -38,8 +38,8 @@ export class UserService {
   }
 
   // manager register
-  public mgrRegister(credentials) {
-    return this.http.post('http://127.0.0.1:5000/mgrRegister',
+  public reqAdmin(credentials) {
+    return this.http.post('http://127.0.0.1:5000/reqAdmin',
       (
         {
           'firstname': credentials.firstname,
@@ -47,7 +47,9 @@ export class UserService {
           'email': credentials.email,
           'mobileno': credentials.mobileno,
           'username': credentials.username,
-          'password': credentials.password
+          'password': credentials.password,
+          'shopname': credentials.shopname,
+          'shopdesc': credentials.shopdesc
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
