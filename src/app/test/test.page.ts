@@ -8,59 +8,33 @@ import { UserService } from '../api/user.service';
   styleUrls: ['./test.page.scss'],
 })
 export class TestPage  {
-  createSuccess = false;
-  addToCartCredentials = { itemname: '', qty: '', unitprice: '' };
-  items:Items[];
+  
+  products:Products[]=[];
+  items:Products[]=[];
 
   constructor(private alertCtrl: AlertController, private auth: UserService) {
-    this.getItems();
+    this.initializeItems();
    }
 
   ngOnInit() {
   }
 
-  public getItems(){
-    this.auth.getFoodItems().subscribe(res => {
-    },
-    error => {
-      console.log(error);
-    });
-  }
-
-  public addToCart() {
-    this.auth.addToCart(this.addToCartCredentials).subscribe(success => {
-      if (success) {
-        this.createSuccess = true;
-        this.showPopup('Success', 'Items Added to Cart Successfully.');
-      } else {
-        this.showPopup('Error', 'Problem adding to Cart.');
+  initializeItems(){
+    this.auth.getFoodItems().subscribe(product => {
+      this.items=[];
+      this.products=[];
+      for(let i in product){
+        this.items.push(product[i]);
+        this.products.push(product[i]);
       }
-    },
-      error => {
-        this.showPopup('Error', error);
-      });
-  }
-
-
-  async showPopup(title, text) {
-    const alert = await this.alertCtrl.create({
-      header: title,
-      message: text,
-      buttons: [
-        {
-          text: 'OK',
-          handler: data => {
-            if (this.createSuccess) {
-            }
-          }
-        }
-      ]
-    });
-    await alert.present();
+     },
+     error => {
+       console.log(error);
+     });
   }
 
 }
-interface Items{
+interface Products{
   id:string,
   price:string;
   itemname:string;
