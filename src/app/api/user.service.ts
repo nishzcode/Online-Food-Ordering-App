@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,20 @@ export class UserService {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   });
-  constructor(public http: HttpClient) { }
+  cart = [];
+  constructor(public http: HttpClient, private storage: Storage) { }
+
+  // add items to cart
+  // take cart items locally till place order
+  public addToCart(id) {
+    this.storage.remove('cart');
+    this.cart.push(id);
+    this.storage.set('cart', JSON.stringify(this.cart));
+  }
+
+  public getCart() {
+    return this.storage.get('cart');
+  }
 
   // register
   public register(credentials) {
@@ -77,7 +91,7 @@ export class UserService {
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
-  //add food
+  // add food
   public addFood(credentials) {
     return this.http.post('http://127.0.0.1:5000/addFood',
       (
@@ -87,31 +101,32 @@ export class UserService {
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
-  //add to cart
-  public addToCart(credentials) {
-    return this.http.post('http://127.0.0.1:5000/addToCart',
-      (
-        {
-          'itemname': credentials.itemname,
-          'qty': credentials.qty,
-          'unitprice': credentials.unitprice
-        }), { headers: this.headers }).pipe(map(res => res));
-  }
+  // add to cart
+  // public addToCart(credentials) {
+  //   return this.http.post('http://127.0.0.1:5000/addToCart',
+  //     (
+  //       {
+  //         'itemname': credentials.itemname,
+  //         'qty': credentials.qty,
+  //         'unitprice': credentials.unitprice
+  //       }), { headers: this.headers }).pipe(map(res => res));
+  // }
 
-  //add order
+  // add order
   public placeOrder(credentials) {
+    // 'qty': credentials.qty,
+    //       'unitprice': credentials.unitprice,
+    //       'total': credentials.total,
+    //       'orderdate': credentials.orderdate,
+    //       'ordertime': credentials.ordertime
     return this.http.post('http://127.0.0.1:5000/placeOrder',
       (
         {
-          'qty': credentials.qty,
-          'unitprice': credentials.unitprice,
-          'total': credentials.total,
-          'orderdate': credentials.orderdate,
-          'ordertime': credentials.ordertime
+          'items': credentials
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
-  //view managers
+  // view managers
   public viewManagers(credentials) {
     return this.http.post('http://127.0.0.1:5000/viewManagers',
       (
@@ -125,7 +140,7 @@ export class UserService {
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
-  //view requests
+  // view requests
   public viewRequests(credentials) {
     return this.http.post('http://127.0.0.1:5000/viewRequests',
       (
@@ -138,13 +153,13 @@ export class UserService {
           'password': credentials.password
         }), { headers: this.headers }).pipe(map(res => res));
   }
-  //get items
+  // get items
   public getFoodItems() {
     return this.http.post('http://127.0.0.1:5000/getFoodItems',
       { headers: this.headers }).pipe(map(res => res));
-   }
+  }
 
-   //add restaurant
+  // add restaurant
   public addRestaurant(credentials) {
     return this.http.post('http://127.0.0.1:5000/addRestaurant',
       (
