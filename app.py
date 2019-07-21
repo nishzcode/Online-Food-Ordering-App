@@ -39,7 +39,7 @@ def login():
         pswd = userDetails['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT username ,password FROM user where username==%s and password==%s",(uname,pswd))
+        cur.execute("SELECT username ,password FROM user where username==%s",(uname))
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
@@ -161,6 +161,16 @@ def viewManagers():
         cur.close()
         return jsonify("success")
 
+@app.route('/getFoodItems',methods=['GET','POST'])
+def getFoodItems():
+    if request.method == 'POST':
+        #userDetails = request.get_json(silent=True)
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT itemname, price, itempic FROM fooditem")
+        mysql.connection.commit()
+        cur.close()
+        return jsonify("success")
 
 if __name__ == '__main__':
     app.run()
