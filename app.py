@@ -155,19 +155,15 @@ def addToCart():
         cur.close()
         return jsonify("success")
 
-@app.route('/placeOrder',methods=['GET','POST'])
+@app.route('/placeOrder',methods=['POST'])
 @cross_origin(supports_credentials=True)
 def placeOrder():
     if request.method == 'POST':
-        userDetails = request.get_json(silent=True)
-        itemqty = userDetails['qty']
-        itemprice = userDetails['unitprice']
-        totalprice = userDetails['total']
-        odate = userDetails['orderdate']
-        otime = userDetails['ordertime']
-
+        itemDetails = request.get_json(silent=True)
+        items = itemDetails['items']
+        
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO orders(qty,unitprice,total,orderdate,ordertime) VALUES(%s,%s,%s,%s,%s)",(itemqty,itemprice,totalprice,odate,otime))
+        cur.execute("INSERT INTO orderdata(itemid) VALUES(%s)",[items])
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
