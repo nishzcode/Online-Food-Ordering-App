@@ -39,18 +39,18 @@
         <img src="../../assets/images/burgercrispy.png" alt="burger">
       </ion-col>
       <ion-col class="col-5 ">
-        <h5 class="menudes">Item Name</h5>
-        <p>Price</p>
+        <h5 class="menudes">Cheese Burger</h5>
+        <p>Price : Rs.500</p>
       </ion-col>
       <ion-col>
         <div class="d-flex justify-content-center cartdiv">
-          <ion-button (click)="addToCart()"  class="menudes" color="success">
+          <ion-button (click)="addToCart(1)"  class="menudes" color="success">
             <ion-icon class="iconsize" name="cart"></ion-icon>
           </ion-button>
         </div>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
           <div class="float-right">
               <ion-button  class="itemqty" shape="round">
@@ -75,24 +75,24 @@
           </div>
 
       </ion-col>
-  </ion-row>
+  </ion-row> -->
     <ion-row>
       <ion-col class="col-4">
         <img src="../../assets/images/burger beef.png" alt="burger">
       </ion-col>
       <ion-col class="col-5 ">
-        <h5 class="menudes">Item Name</h5>
-        <p>Price</p>
+        <h5 class="menudes">Chicken Burger</h5>
+        <p>Price : Rs.440</p>
       </ion-col>
       <ion-col>
         <div class="d-flex justify-content-center cartdiv">
-          <ion-button class="menudes" color="success">
-            <ion-icon class="iconsize" name="cart"></ion-icon>
+          <ion-button class="menudes" color="success" (click)="addToCart(2)">
+            <ion-icon class="iconsize" name="cart" ></ion-icon>
           </ion-button>
         </div>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
           <div class="float-right">
               <ion-button  class="itemqty" shape="round">
@@ -117,7 +117,7 @@
           </div>
 
       </ion-col>
-  </ion-row>
+  </ion-row> -->
   </ion-grid>
   <div class="footer">
     <ion-button href="/order" color="success" class="btn btnlist btn-block">

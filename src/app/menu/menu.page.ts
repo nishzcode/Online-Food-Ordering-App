@@ -17,18 +17,19 @@ export class MenuPage implements OnInit {
   ngOnInit() {
   }
 
-  public addToCart() {
-    this.auth.addToCart(this.addToCartCredentials).subscribe(success => {
-      if (success) {
-        this.createSuccess = true;
-        this.showPopup('Success', 'Items Added to Cart Successfully.');
-      } else {
-        this.showPopup('Error', 'Problem adding to Cart.');
-      }
-    },
-      error => {
-        this.showPopup('Error', error);
-      });
+  public addToCart(id) {
+    this.auth.addToCart(id);
+    // this.auth.addToCart(this.addToCartCredentials).subscribe(success => {
+    //   if (success) {
+    //     this.createSuccess = true;
+    //     this.showPopup('Success', 'Items Added to Cart Successfully.');
+    //   } else {
+    //     this.showPopup('Error', 'Problem adding to Cart.');
+    //   }
+    // },
+    //   error => {
+    //     this.showPopup('Error', error);
+    //   });
   }
 
 
