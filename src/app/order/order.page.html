@@ -15,34 +15,24 @@
 <ion-content>
     <ion-list>
         <ion-list-header>
-            <ion-label>Your Order</ion-label>
+            <ion-label>Your Cart</ion-label>
         </ion-list-header>
-        <ion-item>Item 1
+        <ion-item *ngFor='let i of tempCart'>{{i.name}}
             <div slot="end">
-                Rs.500.00
+                Rs. {{i.price}}
             </div>
         </ion-item>
-        <ion-item>Item 2
-            <div slot="end">
-                Rs.500.00
-            </div>
-        </ion-item>
-        <ion-item>Item 3
-            <div slot="end">
-                Rs.500.00
-            </div>
-        </ion-item>
-        <ion-item>Item 4</ion-item>
-        <ion-item>Item 5</ion-item>
     </ion-list>
 
 
     <ion-list class="totallist">
-       <!-- <ion-item>
+        <!-- <ion-item>
             Sub Total
         </ion-item>-->
         <ion-item>
-            Total
+            Total :<div slot="end">
+                Rs. {{totalPrice}}
+            </div>
         </ion-item>
     </ion-list>
 
