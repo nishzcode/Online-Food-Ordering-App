@@ -43,10 +43,16 @@ def login():
 
         cur = mysql.connection.cursor()
         cur.execute("SELECT username ,password FROM user where username =%s AND password = %s",(uname,pswd))
-      
+        data= cur.fetchall()
         mysql.connection.commit()
         cur.close()
-        return jsonify('success')
+        
+        if(len(data)!=0):
+                return jsonify(data)
+        else:
+                return jsonify('error')
+        
+        
 
 @app.route('/addCashier',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)

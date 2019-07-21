@@ -18,17 +18,21 @@ export class LoginPage implements OnInit {
   }
 
   public login() {
-    this.auth.login(this.loginCredentials).subscribe(success => {
-      if (success) {
-        this.loginSuccess = true;
-        this.showPopup('Success', 'Login Successful.');
-      } else {
-        this.showPopup('Error', 'Login Failed.');
-      }
-    },
-      error => {
-        this.showPopup('Error', error);
-      });
+    if (this.loginCredentials.username !== '' && this.loginCredentials.password !== '') {
+      this.auth.login(this.loginCredentials).subscribe(success => {
+        if (success !== 'error') {
+          this.loginSuccess = true;
+          this.showPopup('Success', 'Login Successful.');
+        } else {
+          this.showPopup('Error', 'Invalid Credentials.');
+        }
+      },
+        error => {
+          this.showPopup('Error', error);
+        });
+    } else{
+       this.showPopup('Error','Please Enter Credentials');
+    }
   }
 
 
