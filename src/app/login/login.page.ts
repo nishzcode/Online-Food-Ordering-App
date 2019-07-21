@@ -10,9 +10,9 @@ import { UserService } from '../api/user.service';
 export class LoginPage implements OnInit {
 
   loginSuccess = false;
-  loginCredentials  = { username: '', password: ''};
+  loginCredentials = { username: '', password: '' };
 
-  constructor(private alertCtrl: AlertController, private auth: UserService) { }
+  constructor(private alertCtrl: AlertController, private auth: UserService, private nav: NavController) { }
 
   ngOnInit() {
   }
@@ -23,6 +23,7 @@ export class LoginPage implements OnInit {
         if (success !== 'error') {
           this.loginSuccess = true;
           this.showPopup('Success', 'Login Successful.');
+          this.nav.navigateRoot('/home');
         } else {
           this.showPopup('Error', 'Invalid Credentials.');
         }
@@ -30,8 +31,8 @@ export class LoginPage implements OnInit {
         error => {
           this.showPopup('Error', error);
         });
-    } else{
-       this.showPopup('Error','Please Enter Credentials');
+    } else {
+      this.showPopup('Error', 'Please Enter Credentials');
     }
   }
 
@@ -45,7 +46,7 @@ export class LoginPage implements OnInit {
           text: 'OK',
           handler: data => {
             if (this.loginSuccess) {
-             // this.nav.navigateRoot('/home');
+              // this.nav.navigateRoot('/home');
             }
           }
         }
