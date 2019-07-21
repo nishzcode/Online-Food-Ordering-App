@@ -23,7 +23,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Username*</ion-label>
-                        <ion-input placeholder="Enter your Mobile No."></ion-input>
+                        <ion-input name="username" placeholder="Enter your Username" [(ngModel)]='loginCredentials.username'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>
@@ -33,7 +33,7 @@
                 <div class="logindiv">
                     <ion-item>
                         <ion-label position="stacked">Password*</ion-label>
-                        <ion-input placeholder="Enter your Password"></ion-input>
+                        <ion-input name="password" placeholder="Enter your Password" [(ngModel)]='loginCredentials.password'></ion-input>
                     </ion-item>
                 </div>
             </ion-col>

@@ -27,17 +27,19 @@ export class UserService {
   }
 
   // login
-  public login() {
+  public login(credentials) {
     return this.http.post('http://127.0.0.1:5000/login',
       (
         {
+          'username': credentials.username,
+          'password': credentials.password
 
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
   // manager register
-  public mgrRegister(credentials) {
-    return this.http.post('http://127.0.0.1:5000/mgrRegister',
+  public reqAdmin(credentials) {
+    return this.http.post('http://127.0.0.1:5000/reqAdmin',
       (
         {
           'firstname': credentials.firstname,
@@ -45,7 +47,9 @@ export class UserService {
           'email': credentials.email,
           'mobileno': credentials.mobileno,
           'username': credentials.username,
-          'password': credentials.password
+          'password': credentials.password,
+          'shopname': credentials.shopname,
+          'shopdesc': credentials.shopdesc
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
@@ -134,14 +138,19 @@ export class UserService {
           'password': credentials.password
         }), { headers: this.headers }).pipe(map(res => res));
   }
-
+  //get items
   public getFoodItems() {
     return this.http.post('http://127.0.0.1:5000/getFoodItems',
+      { headers: this.headers }).pipe(map(res => res));
+   }
+
+   //add restaurant
+  public addRestaurant(credentials) {
+    return this.http.post('http://127.0.0.1:5000/addRestaurant',
       (
         {
-          'itemname': credentials.itemname,
-          'price': credentials.price,
-          'itempic': credentials.itempic
-        }),{ headers: this.headers }).pipe(map(res => res));
-   }
+          'shopname': credentials.shopname,
+          'description': credentials.description
+        }), { headers: this.headers }).pipe(map(res => res));
+  }
 }

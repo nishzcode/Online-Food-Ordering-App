@@ -10,7 +10,7 @@ import { UserService } from '../api/user.service';
 export class AddcashierPage implements OnInit {
 
   createSuccess = false;
-  addCashierCredentials = { firstname: '', lastname: '', mobileno: '', username: '', password: '' };
+  addCashierCredentials = { firstname: '', lastname: '', email:'',  mobileno: '', username: '', password: '' };
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 

@@ -63,7 +63,7 @@
         <div class="logindiv">
           <ion-item>
             <ion-label position="stacked">Username*</ion-label>
-            <ion-input name="password" placeholder="Enter your Username" [(ngModel)]='registerMgrCredentials.Username'></ion-input>
+            <ion-input name="username" placeholder="Enter your Username" [(ngModel)]='registerMgrCredentials.username'></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -90,7 +90,7 @@
         <div class="logindiv">
           <ion-item>
             <ion-label position="stacked">Restaurant Name*</ion-label>
-            <ion-input name="password" placeholder="Enter the Restaurant Name"></ion-input>
+            <ion-input name="shopname" placeholder="Enter the Restaurant Name" [(ngModel)]='registerMgrCredentials.shopname'></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -101,7 +101,9 @@
           <ion-item>
             <ion-label position="stacked">Description*</ion-label>
 
-            <ion-textarea placeholder="Enter the Description"></ion-textarea>
+            <ion-textarea>
+                <ion-input name="shopdesc" placeholder="Enter the Description" [(ngModel)]='registerMgrCredentials.shopdesc'></ion-input>
+            </ion-textarea>
 
           </ion-item>
         </div>
@@ -119,7 +121,7 @@
     <ion-row class="ezfoodlog">
       <ion-col class="col">
         <div class="d-flex justify-content-center ">
-          <ion-button color="success">
+          <ion-button color="success" (click)="reqAdmin()">
             Submit Request
           </ion-button>
         </div>
