@@ -9,7 +9,7 @@ import { UserService } from '../api/user.service';
 })
 export class LoginPage implements OnInit {
 
-  createSuccess = false;
+  loginSuccess = false;
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   public login() {
     this.auth.login().subscribe(success => {
       if (success) {
-        this.createSuccess = true;
+        this.loginSuccess = true;
         this.showPopup('Success', 'Login Successful.');
       } else {
         this.showPopup('Error', 'Login Failed.');
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         {
           text: 'OK',
           handler: data => {
-            if (this.createSuccess) {
+            if (this.loginSuccess) {
              // this.nav.navigateRoot('/home');
             }
           }

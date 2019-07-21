@@ -20,14 +20,7 @@ export class TestPage  {
   }
 
   public getItems(){
-    this.auth.getCart().subscribe(res => {
-      this.items=res;
-      this.totalPrice=0;
-      for(let item of this.items){
-        this.totalPrice+=Number(item.pricePay);
-      }
-      this.auth.setTotalPrice(this.totalPrice);
-      console.log(this.totalPrice);
+    this.auth.getFoodItems().subscribe(res => {
     },
     error => {
       console.log(error);

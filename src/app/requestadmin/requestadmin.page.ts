@@ -11,6 +11,7 @@ export class RequestadminPage implements OnInit {
 
   createSuccess = false;
   registerMgrCredentials = { firstname: '', lastname: '',email: '', mobileno: '', username: '' , password: '' };
+  restaurantCredentials = { shopname: '', description: ''};
 
   constructor(private alertCtrl: AlertController, private auth: UserService) { }
 
@@ -22,6 +23,20 @@ export class RequestadminPage implements OnInit {
       if (success) {
         this.createSuccess = true;
         this.showPopup('Success', 'Account created.');
+      } else {
+        this.showPopup('Error', 'Problem creating account.');
+      }
+    },
+      error => {
+        this.showPopup('Error', error);
+      });
+  }
+
+  public addRestaurant() {
+    this.auth.addRestaurant(this.restaurantCredentials).subscribe(success => {
+      if (success) {
+        this.createSuccess = true;
+        //this.showPopup('Success', 'Account created.');
       } else {
         this.showPopup('Error', 'Problem creating account.');
       }

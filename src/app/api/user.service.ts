@@ -134,14 +134,19 @@ export class UserService {
           'password': credentials.password
         }), { headers: this.headers }).pipe(map(res => res));
   }
-
+  //get items
   public getFoodItems() {
     return this.http.post('http://127.0.0.1:5000/getFoodItems',
+      { headers: this.headers }).pipe(map(res => res));
+   }
+
+   //add restaurant
+  public addRestaurant(credentials) {
+    return this.http.post('http://127.0.0.1:5000/addRestaurant',
       (
         {
-          'itemname': credentials.itemname,
-          'price': credentials.price,
-          'itempic': credentials.itempic
-        }),{ headers: this.headers }).pipe(map(res => res));
-   }
+          'shopname': credentials.shopname,
+          'description': credentials.description
+        }), { headers: this.headers }).pipe(map(res => res));
+  }
 }

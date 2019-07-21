@@ -32,6 +32,7 @@ def cusRegister():
         return jsonify("success")
 
 @app.route('/login',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def login():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -45,6 +46,7 @@ def login():
         return jsonify("success")
 
 @app.route('/addCashier',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def addCashier():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -63,6 +65,7 @@ def addCashier():
         return jsonify("success")
 
 @app.route('/mgrRegister',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def mgrRegister():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -81,6 +84,7 @@ def mgrRegister():
         return jsonify("success")
 
 @app.route('/addFood',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def addFood():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -94,7 +98,22 @@ def addFood():
         cur.close()
         return jsonify("success")
 
+@app.route('/addFood',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
+def addRestaurant():
+    if request.method == 'POST':
+        userDetails = request.get_json(silent=True)
+        shopname = userDetails['shopname']
+        description = userDetails['description']
+        
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO shops(shopname,description) VALUES(%s,%s)",(shopname,description))
+        mysql.connection.commit()
+        cur.close()
+        return jsonify("success")
+
 @app.route('/addOffer',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def addOffer():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -109,6 +128,7 @@ def addOffer():
 
 
 @app.route('/addToCart',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def addToCart():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -124,6 +144,7 @@ def addToCart():
         return jsonify("success")
 
 @app.route('/placeOrder',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def placeOrder():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
@@ -142,6 +163,7 @@ def placeOrder():
     
 
 @app.route('/viewRequests',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def viewRequests():
     if request.method == 'POST':
 
@@ -152,6 +174,7 @@ def viewRequests():
         return jsonify("success")
 
 @app.route('/viewManagers',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def viewManagers():
     if request.method == 'POST':
 
@@ -162,12 +185,13 @@ def viewManagers():
         return jsonify("success")
 
 @app.route('/getFoodItems',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
 def getFoodItems():
     if request.method == 'POST':
         #userDetails = request.get_json(silent=True)
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT itemname, price, itempic FROM fooditem")
+        cur.execute("SELECT shopid,itemname, price, itempic FROM fooditem")
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
