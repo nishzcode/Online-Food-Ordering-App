@@ -1,9 +1,10 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,flash,session
 from flask_mysqldb import MySQL
 from flask_cors import CORS,cross_origin
 from flask import jsonify
 
 app = Flask(__name__)
+#app.secret_key = 'ezfood1234'
 
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
@@ -34,16 +35,18 @@ def cusRegister():
 @app.route('/login',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
 def login():
+    
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
         uname = userDetails['username']
         pswd = userDetails['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT username ,password FROM user where username==%s",(uname))
+        cur.execute("SELECT username ,password FROM user where username =%s AND password = %s",(uname,pswd))
+      
         mysql.connection.commit()
         cur.close()
-        return jsonify("success")
+        return jsonify('success')
 
 @app.route('/addCashier',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
