@@ -58,7 +58,11 @@ const routes: Routes = [
   { path: 'viewmanagers', loadChildren: './viewmanagers/viewmanagers.module#ViewmanagersPageModule' },
   { path: 'addoffer', loadChildren: './addoffer/addoffer.module#AddofferPageModule' },
   { path: 'additem', loadChildren: './additem/additem.module#AdditemPageModule' },
-  { path: 'offers', loadChildren: './offers/offers.module#OffersPageModule' }
+  { path: 'offers', loadChildren: './offers/offers.module#OffersPageModule' },  { path: 'addmanager', loadChildren: './addmanager/addmanager.module#AddmanagerPageModule' },
+  { path: 'viewmanager', loadChildren: './viewmanager/viewmanager.module#ViewmanagerPageModule' },
+  { path: 'viewcashier', loadChildren: './viewcashier/viewcashier.module#ViewcashierPageModule' },
+  { path: 'test3', loadChildren: './test3/test3.module#Test3PageModule' }
+
 ];
 
 @NgModule({

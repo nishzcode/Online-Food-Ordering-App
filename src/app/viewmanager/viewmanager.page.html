@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light" href="/admin">
+          <ion-icon class="icn" slot="start" name="arrow-round-back"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+      <ion-menu-button color="light"></ion-menu-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{item.managerfirstname}} {{item.managerlastname}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h6>Contact Details:</h6>
+          <p>Mobile: {{item.managermobile}}</p>
+          <p>Email: {{item.manageremail}}</p>
+          <p>Shop: {{item.managershopname}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

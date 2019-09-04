@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+//import { type } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,12 @@ export class UserService {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   });
+
   cart = [];
+  userName: string;
+  shopId: number;
+
+
   constructor(public http: HttpClient, private storage: Storage) { }
 
   // add items to cart
@@ -20,6 +26,21 @@ export class UserService {
     this.storage.remove('cart');
     this.cart.push(id);
     this.storage.set('cart', JSON.stringify(this.cart));
+  }
+
+  public setUser(username) {
+    this.userName = username;
+  }
+
+  public getUser() {
+    return this.userName;
+  }
+
+  public setShop(shopid) {
+    this.shopId = shopid;
+  }
+  public getShop() {
+    return this.shopId;
   }
 
   public getCart() {
@@ -42,18 +63,18 @@ export class UserService {
 
   // login
   public login(credentials) {
+    this.setUser(credentials.username);
     return this.http.post('http://127.0.0.1:5000/login',
       (
         {
           'username': credentials.username,
           'password': credentials.password
-
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
   // manager register
-  public reqAdmin(credentials) {
-    return this.http.post('http://127.0.0.1:5000/reqAdmin',
+  public addManager(credentials) {
+    return this.http.post('http://127.0.0.1:5000/addManager',
       (
         {
           'firstname': credentials.firstname,
@@ -62,8 +83,7 @@ export class UserService {
           'mobileno': credentials.mobileno,
           'username': credentials.username,
           'password': credentials.password,
-          'shopname': credentials.shopname,
-          'shopdesc': credentials.shopdesc
+          'shop': credentials.shop
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
@@ -93,11 +113,16 @@ export class UserService {
 
   // add food
   public addFood(credentials) {
+    console.log(this.shopId);
     return this.http.post('http://127.0.0.1:5000/addFood',
       (
         {
-          'itemdesc': credentials.itemdesc,
-          'itemprice': credentials.itemprice
+          'shopid':this.shopId,
+          'itemname': credentials.itemname,
+          'description': credentials.description,
+          'price': credentials.price
+          
+          
         }), { headers: this.headers }).pipe(map(res => res));
   }
 
@@ -153,10 +178,14 @@ export class UserService {
           'password': credentials.password
         }), { headers: this.headers }).pipe(map(res => res));
   }
+
   // get items
   public getFoodItems() {
-    return this.http.post('http://127.0.0.1:5000/getFoodItems',
-      { headers: this.headers }).pipe(map(res => res));
+    return this.http.post('http://localhost:5000/getFoodItems',
+    (
+      {
+        'shopid': this.shopId
+      }), { headers: this.headers }).pipe(map(res => res));
   }
 
   // add restaurant
@@ -168,4 +197,28 @@ export class UserService {
           'description': credentials.description
         }), { headers: this.headers }).pipe(map(res => res));
   }
+
+  // get shops
+  public getShops() {
+    return this.http.get('http://127.0.0.1:5000/getShops',
+      { headers: this.headers }).pipe(map(res => res));
+  }
+
+  // get managers
+  public getManagers() {
+    return this.http.get('http://127.0.0.1:5000/getManagers',
+      { headers: this.headers }).pipe(map(res => res));
+  }
+
+  // get cashiers
+  public getCashiers() {
+    console.log(this.shopId);
+    return this.http.post('http://127.0.0.1:5000/getCashiers',
+      (
+        {
+          'shopid': this.shopId
+        }
+      ), { headers: this.headers }).pipe(map(res => res));
+  }
+
 }

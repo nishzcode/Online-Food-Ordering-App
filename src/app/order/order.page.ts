@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController,NavController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 import { ConstantPool } from '@angular/compiler';
 
@@ -16,7 +16,7 @@ export class OrderPage implements OnInit {
   tempCart = [];
   totalPrice = 0;
 
-  constructor(private alertCtrl: AlertController, private auth: UserService) {
+  constructor(private alertCtrl: AlertController, private auth: UserService, private nav: NavController) {
     this.getCart();
   }
 
@@ -69,6 +69,7 @@ export class OrderPage implements OnInit {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
+              this.nav.navigateForward('/restaurants');
             }
           }
         }

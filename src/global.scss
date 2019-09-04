@@ -1,11 +1,41 @@
 // http://ionicframework.com/docs/theming/
-@import '~@ionic/angular/css/core.css';
-@import '~@ionic/angular/css/normalize.css';
-@import '~@ionic/angular/css/structure.css';
-@import '~@ionic/angular/css/typography.css';
-@import '~@ionic/angular/css/display.css';
-@import '~@ionic/angular/css/padding.css';
-@import '~@ionic/angular/css/float-elements.css';
-@import '~@ionic/angular/css/text-alignment.css';
-@import '~@ionic/angular/css/text-transformation.css';
-@import '~@ionic/angular/css/flex-utils.css';
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+ion-split-pane {
+  --border: none !important;
+  ion-menu {
+    --background: var(--ion-color-sidemenu) !important;
+    ion-toolbar,
+    ion-title {
+      --background: var(--ion-color-sidemenu) !important;
+      --color: #ffffff !important;
+      font-weight:bold;
+    }
+    ion-content {
+      --background: var(--ion-color-sidemenu) !important;
+      ion-list-header {
+        --background: var(--ion-color-sidemenu) !important;
+        --color: #ffffff !important;
+      }
+      ion-item {
+        --background: var(--ion-color-sidemenu) !important;
+        --color: #ffffff !important;
+        ion-icon {
+          padding-right: 10px !important;
+        }
+        ion-label{
+            font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar >
+      <ion-buttons slot="end">
+          <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          SIGN IN
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed class="abtdiv">
+      <ion-row>
+          <ion-col class="col">
+              <div>
+                  <img class="mx-auto d-block img-fluid topimg" src="../../assets/images/start_journey_white.png"
+                      alt="Start Your Food Journey">
+              </div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="formrow">
+          <ion-col class="col">
+              <div class="logindiv">
+                  <ion-item>
+                      <ion-label position="stacked"><strong>Username*</strong></ion-label>
+                      <ion-input name="username" placeholder="Enter your Username"
+                          [(ngModel)]='loginCredentials.username'></ion-input>
+                  </ion-item>
+              </div>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col class="col">
+              <div class="logindiv">
+                  <ion-item>
+                      <ion-label position="stacked"><strong>Password*</strong></ion-label>
+                      <ion-input name="password" placeholder="Enter your Password"
+                          [(ngModel)]='loginCredentials.password'></ion-input>
+                  </ion-item>
+              </div>
+          </ion-col>
+      </ion-row>
+      <ion-row class="ezfoodlog">
+          <ion-col class="col">
+              <div class="d-flex justify-content-center ">
+                  <ion-button (click)="login()" color="maincolor">
+                      <ion-icon slot="start" name="beer"></ion-icon>
+                      Login with EzFood
+                  </ion-button>
+              </div>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col class="col">
+              <div class="d-flex justify-content-center linksignin">
+                  <a class="acolor" href="/passwordreset">Forgot Password ?</a>
+              </div>
+              <div class="d-flex justify-content-center ">
+                  <a class="acolor" href="/register">Not a Member ? </a>
+              </div>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

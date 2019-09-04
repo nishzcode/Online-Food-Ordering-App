@@ -41,20 +41,22 @@ ion-content {
   --color: #fff;
 }
 
-.home_btn{
-  --background: rgba(0, 0, 0, 0.7);
+.btnlist{
+  --background: rgba(0, 0, 0, 0.9);
   --color: #fff;
+  height: 70px;
+  font-weight: bold;
 }
 
-.home_btn:hover{
-  --background: rgba(255, 255, 255, 0.85);
-  --color:#000;
-}
+// .btnlist:hover{
+//   --background: rgba(255, 255, 255, 0.85);
+//   --color:#000;
+// }
 
 .btncard{
   --background: rgba(0, 0, 0, 0.7);
 }
 
-.btnlist {
-  height: 70px;
+ion-button{
+  --color:#FFF;
 }

@@ -9,6 +9,7 @@ import { UserService } from '../api/user.service';
 })
 export class RegisterPage implements OnInit {
 
+  userName ="Nimesh";
   createSuccess = false;
   registerCredentials = { firstname: '', lastname: '', email: '', mobileno: '', username: '' , password: '' };
 

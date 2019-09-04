@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController,NavController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class AdditemPage implements OnInit {
   createSuccess = false;
   addFoodCredentials = { itemname: '', description: '', price: '' };
   
-  constructor(private alertCtrl: AlertController, private auth: UserService) { }
+  constructor(private alertCtrl: AlertController, private auth: UserService, private nav:NavController) { }
 
   ngOnInit() {
   }

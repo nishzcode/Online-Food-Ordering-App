@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Component, OnInit} from '@angular/core';
+import { AlertController,NavController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
@@ -7,33 +7,44 @@ import { UserService } from '../api/user.service';
   templateUrl: './test.page.html',
   styleUrls: ['./test.page.scss'],
 })
-export class TestPage {
+export class TestPage implements OnInit{
 
-  products: Products[] = [];
-  items: Products[] = [];
-
-  constructor(private alertCtrl: AlertController, private auth: UserService) {
+  userName= "";
+  items= [];
+  
+  constructor(private alertCtrl: AlertController, private auth: UserService, private nav: NavController) { 
+    this.userName = this.auth.getUser();
+    
     this.initializeItems();
   }
-
-  initializeItems() {
-    this.auth.getFoodItems().subscribe(product => {
-      this.items = [];
-      this.products = [];
-      for (let i in product) {
-        this.items.push(product[i]);
-        this.products.push(product[i]);
+  ngOnInit() {
+  }
+  
+  initializeItems(){
+    this.auth.getShops().subscribe(shop => {
+      console.log(shop);
+      for(let i in shop){
+        console.log(i);
+        var itemObj = {
+          shopid:shop[i][0],
+          shopname:shop[i][1],
+          description:shop[i][2],
+          shoppic:shop[i][3]
+        }
+        this.items.push(itemObj);
+        console.log(this.items);
+        //this.shops.push(shop[i]);
       }
-    },
-      error => {
-        console.log(error);
-      });
+     },
+     error => {
+       console.log(error);
+     });
   }
 
+  loadMenu(shopid){
+    console.log(shopid);
+    this.auth.setShop(shopid);
+    this.nav.navigateForward('test2');
+  }
 }
-interface Products {
-  id: string;
-  price: string;
-  itemname: string;
-  itempic: string;
-}
+

@@ -43,6 +43,16 @@
   --ion-color-warning-shade: #e0b500;
   --ion-color-warning-tint: #ffd31a;
 
+  /** main **/
+  --ion-color-maincolor: #8909AB;
+  --ion-color-maincolor-rgb: 137,9,171;
+  --ion-color-maincolor-contrast: #ffffff;
+  --ion-color-maincolor-contrast-rgb: 255,255,255;
+  --ion-color-maincolor-shade: #790896;
+  --ion-color-maincolor-tint: #9522b3;
+
+  
+
   /** danger **/
   --ion-color-danger: #f04141;
   --ion-color-danger-rgb: 245, 61, 61;
@@ -75,6 +85,19 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+  --ion-color-secondcolor: #FF4A00;
+  --ion-color-secondcolor-rgb: 255,74,0;
+  --ion-color-secondcolor-contrast: #ffffff;
+  --ion-color-secondcolor-contrast-rgb: 255,255,255;
+  --ion-color-secondcolor-shade: #e04100;
+  --ion-color-secondcolor-tint: #ff5c1a;
+
+  --ion-color-sidemenu: #570D6B;
+  --ion-color-sidemenu-rgb: 87,13,107;
+  --ion-color-sidemenu-contrast: #ffffff;
+  --ion-color-sidemenu-contrast-rgb: 255,255,255;
+  --ion-color-sidemenu-shade: #4d0b5e;
+  --ion-color-sidemenu-tint: #68257a;
 
   --ion-font-family: 'KionaRegular';
 
@@ -125,4 +148,31 @@
        url('../assets/fonts/Astereiska.woff') format('woff'),
        url('../assets/fonts/Astereiska.ttf') format('truetype'),
        url('../assets/fonts/Astereiska.svg#Astereiska') format('svg');
+}
+
+.ion-color-maincolor {
+  --ion-color-base: var(--ion-color-maincolor);
+  --ion-color-base-rgb: var(--ion-color-maincolor-rgb);
+  --ion-color-contrast: var(--ion-color-maincolor-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-maincolor-contrast-rgb);
+  --ion-color-shade: var(--ion-color-maincolor-shade);
+  --ion-color-tint: var(--ion-color-maincolor-tint);
+}
+
+.ion-color-secondcolor {
+  --ion-color-base: var(--ion-color-secondcolor);
+  --ion-color-base-rgb: var(--ion-color-secondcolor-rgb);
+  --ion-color-contrast: var(--ion-color-secondcolor-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-secondcolor-contrast-rgb);
+  --ion-color-shade: var(--ion-color-secondcolor-shade);
+  --ion-color-tint: var(--ion-color-secondcolor-tint);
+}
+
+.ion-color-sidemenu {
+  --ion-color-base: var(--ion-color-sidemenu);
+  --ion-color-base-rgb: var(--ion-color-sidemenu-rgb);
+  --ion-color-contrast: var(--ion-color-sidemenu-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-sidemenu-contrast-rgb);
+  --ion-color-shade: var(--ion-color-sidemenu-shade);
+  --ion-color-tint: var(--ion-color-sidemenu-tint);
 }

@@ -1,62 +1,78 @@
 .toollogo {
-  height: 100%;
-  max-width: 100px;
-  float: left;
-}
-
-.toolimg {
-  width: 100%;
-  max-width: 100px;
-  border-radius: 10px;
-}
-
-ion-card {
-  margin: 0;
-}
-
-h3 {
-  margin: 0;
-  font-size: 16px;
-}
-p {
-  font-size: 12px;
-}
-
-ion-toolbar {
-  --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
-  --color: #fff;
-  ion-title {
-    max-width: 200px;
+    height: 100%;
+    max-width: 100px;
     float: left;
   }
-}
-ion-content {
-  --background: url(../../assets/images/background.png) no-repeat center center / cover;
-  --color: #fff;
-}
-ion-searchbar {
-  --background: rgba(0, 0, 0, 0.5);
-  --border-radius: 5px;
-  --color: #ddd;
-}
-ion-card-title,
-ion-card-content {
-  --color: #fff;
-}
-.sc-ion-card-md-h {
-  --color: rgba(255, 255, 255, 0.7);
-}
-ion-card {
-  --background: rgba(0, 0, 0, 0.7);
-  margin-bottom:5px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-.rest_btn{
-    float: right;
+  
+  .toolimg {
+    width: 100%;
+    max-width: 100px;
+    border-radius: 10px;
+  }
+  
+  ion-card {
+    margin: 0;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+  }
+  
+  ion-toolbar {
+    --background: url(../../assets/images/title_background.png) no-repeat center center / cover;
+    --color: #fff;
+    ion-title {
+      max-width: 200px;
+      float: left;
+    }
+  }
+  ion-content {
+    --background: url(../../assets/images/background.png) no-repeat center center / cover;
+    --color: #fff;
+  }
+  ion-searchbar {
+    --background: rgba(0, 0, 0, 0.5);
+    --border-radius: 5px;
+    --color: #ddd;
+  }
+  ion-card-title,
+  ion-card-content {
+    --color: #fff;
+  }
+  .sc-ion-card-md-h {
+    --color: rgba(255, 255, 255, 0.7);
+  }
+  ion-card,ion-item,ion-list {
     --background: rgba(0, 0, 0, 0.7);
-}
-.rest_btn:hover{
-    --background: rgba(255, 255, 255, 0.85);
-    --color:#000;
-}
+    margin-bottom:5px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .rest_btn{
+      float: right;
+      --background: rgba(0, 0, 0, 0.7);
+  }
+  .rest_btn:hover{
+      --background: rgba(255, 255, 255, 0.85);
+      --color:#000;
+  }
+  
+  img{
+    //max-width: 280px;
+    height: auto;
+    //min-height: 100px;
+    //max-height: 300px;
+    //min-width: 300px;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  ion-card{
+    width: 330px;
+  }

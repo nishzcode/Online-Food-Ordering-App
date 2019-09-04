@@ -1,7 +1,7 @@
-from flask import Flask,render_template,request,flash,session
+from flask import Flask,render_template,request,flash,session,jsonify,json
 from flask_mysqldb import MySQL
 from flask_cors import CORS,cross_origin
-from flask import jsonify
+#from flask import jsonify
 
 app = Flask(__name__)
 #app.secret_key = 'ezfood1234'
@@ -42,7 +42,7 @@ def login():
         pswd = userDetails['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT username ,password FROM user where username =%s AND password = %s",(uname,pswd))
+        cur.execute("SELECT * FROM user where username =%s AND password = %s",(uname,pswd))
         data= cur.fetchall()
         mysql.connection.commit()
         cur.close()
@@ -73,9 +73,9 @@ def addCashier():
         cur.close()
         return jsonify("success")
 
-@app.route('/mgrRegister',methods=['GET','POST'])
+@app.route('/addManager',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
-def reqAdmin():
+def addManager():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
         fname = userDetails['firstname']
@@ -84,13 +84,11 @@ def reqAdmin():
         mobno = userDetails['mobileno']
         uname = userDetails['username']
         pswd = userDetails['password']
-        shopname = userDetails['shopname']
-        shopdesc = userDetails['shopdesc']
-       # utype = "manager"
+        shop = userDetails['shop']
+        utype = "manager"
 
         cur = mysql.connection.cursor()
-       # cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype) VALUES(%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype))
-        cur.execute("INSERT INTO requestdetails(firstname,lastname,email,mobileno,username,password,shopname,shopdesc) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,shopname,shopdesc))
+        cur.execute("INSERT INTO user(firstname,lastname,email,mobileno,username,password,usertype,shopid) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(fname,lname,email,mobno,uname,pswd,utype,shop))
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
@@ -100,17 +98,19 @@ def reqAdmin():
 def addFood():
     if request.method == 'POST':
         userDetails = request.get_json(silent=True)
+        shop = userDetails['shopid']
         item = userDetails['itemname']
         itemdesc = userDetails['description']
         itemprice = userDetails['price']
         
+        
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO fooditem(itemname,description,price) VALUES(%s,%s,%s)",(item,itemdesc,itemprice))
+        cur.execute("INSERT INTO fooditem(shopid,itemname,description,price) VALUES(%s,%s,%s,%s)",(shop,item,itemdesc,itemprice))
         mysql.connection.commit()
         cur.close()
         return jsonify("success")
 
-@app.route('/addFood',methods=['GET','POST'])
+@app.route('/addRestaurant',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
 def addRestaurant():
     if request.method == 'POST':
@@ -181,28 +181,78 @@ def viewRequests():
         cur.close()
         return jsonify("success")
 
-@app.route('/viewManagers',methods=['GET','POST'])
-@cross_origin(supports_credentials=True)
-def viewManagers():
-    if request.method == 'POST':
-
-        cur = mysql.connection.cursor()
-        cur.execute("SELECT * from user")
-        mysql.connection.commit()
-        cur.close()
-        return jsonify("success")
-
 @app.route('/getFoodItems',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)
 def getFoodItems():
     if request.method == 'POST':
-        #userDetails = request.get_json(silent=True)
+        userDetails = request.get_json(silent=True)
+        shopy = userDetails['shopid']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT shopid,itemname, price, itempic FROM fooditem")
+        cur.execute("SELECT * FROM fooditem where shopid = %s",[shopy])
+        data = cur.fetchall()
         mysql.connection.commit()
         cur.close()
-        return jsonify("success")
+        
+        if(len(data)!=0):
+                print (data)
+                return jsonify(data)
+        else:
+                return jsonify('error')
+
+@app.route('/getShops',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
+def getShops():
+    if request.method == 'GET':
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * from shops")
+        data = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        
+        if(len(data)!=0):
+                #print (data)
+                return jsonify(data)
+        else:
+                return jsonify('error')
+
+@app.route('/getManagers',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
+def getManagers():
+    if request.method == 'GET':
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * from user u,shops s where usertype = 'manager' and u.shopid = s.shopid")
+        data = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        
+        if(len(data)!=0):
+                print (data)
+                return jsonify(data)
+        else:
+                return jsonify('error')
+
+@app.route('/getCashiers',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
+def getCashiers():
+    if request.method == 'POST':
+        userDetails = request.get_json(silent=True)
+        shop = userDetails['shopid']
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * from user where usertype = 'cashier' and shopid = %s ",[shop])
+        data = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+        
+        if(len(data)!=0):
+                #print (data)
+                return jsonify(data)
+        else:
+                return jsonify('error')
+
 
 if __name__ == '__main__':
     app.run()
